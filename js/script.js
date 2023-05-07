@@ -17,8 +17,34 @@ let button_minus = document.getElementById("minus");
 let button_times = document.getElementById("times");
 let button_div = document.getElementById("divide");
 let button_dot = document.getElementById("dot");
-let button_breakL = document.getElementById("break_left");
-let button_breakR = document.getElementById("break_rigth")
+// let button_breakL = document.getElementById("break_left");
+// let button_breakR = document.getElementById("break_rigth")
+
+
+
+input.addEventListener("input", function() {
+    const value = input.value;
+
+    if (value.length <= 5) {
+        input.style.fontSize = "3rem";
+    } else if (value.length <= 8) {
+        input.style.fontSize = "2rem";
+    } else if (value.length <= 11) {
+        input.style.fontSize = "1.5rem";
+    }
+});
+
+function updateDisplay(value) {
+    
+
+    if (value.length <= 5) {
+        input.style.fontSize = "3rem";
+    } else if (value.length <= 8) {
+        input.style.fontSize = "2rem";
+    } else if (value.length <= 11) {
+        input.style.fontSize = "1.5rem";
+    }
+}
 
 
 
@@ -149,10 +175,12 @@ function dot(string){
     }
     if (string.length === 1 && string[0] === "0"){
         string = "0."
+        updateDisplay(string);
     }
     
     if (string[string.length - 1] !== "." && string !== "" && string[string.length-1] !== "+" && string[string.length-1] !== "-" && string[string.length-1] !== "×" && string[string.length-1] !== "÷" && canDot){
         string += ".";
+        updateDisplay(string);
     }
 
     return string;
@@ -161,11 +189,13 @@ function dot(string){
 function math_plus(string){
     if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
             string += "+";
+            updateDisplay(string);
     }
     else{
         try{
             string = equal(string);
             string += "+";
+            updateDisplay(string);
         }
         catch{
             if (string[string.length - 1 ] === "+") string = string
@@ -183,11 +213,13 @@ function math_minus(string){
     console.log(!check(string))
     if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷"  && !check(string)){
         string += "-";
+        updateDisplay(string);
     }
     else{
         try{
             string = equal(string);
             string += "-";
+            updateDisplay(string);
         }
         catch{
             if (string[string.length - 1 ] === "-") string = string
@@ -203,11 +235,13 @@ function math_minus(string){
 function math_times(string){
     if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷"  && !check(string)){
         string += "×";
+        updateDisplay(string);
     }
     else{
         try{
             string = equal(string);
             string += "×";
+            updateDisplay(string);
         }
         catch{
             if (string[string.length - 1 ] === "×") string = string
@@ -223,11 +257,13 @@ function math_times(string){
 function math_div(string){
     if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷"  && !check(string)){
         string += "÷";
+        updateDisplay(string);
     }
     else{
         try{
             string = equal(string);
             string += "÷";
+            updateDisplay(string);
         }
         catch{ 
             if (string[string.length - 1 ] === "÷") string = string
@@ -243,102 +279,122 @@ function math_div(string){
 function zero(string){
     if (string[0] === "0" && string[1] !== "."){
         string = "0.0";
+        updateDisplay(string);
         return string;
     }
     string += "0";
+    updateDisplay(string);
     return string;
 }
 
 function one(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "1";
+        updateDisplay(string);
         return string;
     }
     string += "1";
+    updateDisplay(string);
     return string;
 }
 
 function two(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "2";
+        updateDisplay(string);
         return string;
     }
     string += "2";
+    updateDisplay(string);
     return string;
 }
 
 function three(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "3";
+        updateDisplay(string);
         return string;
     }
     string += "3";
+    updateDisplay(string);
     return string;
 }
 
 function four(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "4";
+        updateDisplay(string);
         return string;
     }
     string += "4";
+    updateDisplay(string);
     return string;
 }
 
 function five(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "5";
+        updateDisplay(string);
         return string;
     }
     string += "5";
+    updateDisplay(string);
     return string;
 }
 
 function six(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "6";
+        updateDisplay(string);
         return string;
     }
     string += "6";
+    updateDisplay(string);
     return string;
 }
 
 function seven(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "7";
+        updateDisplay(string);
         return string;
     }
     string += "7";
+    updateDisplay(string);
     return string;
 }
 
 function eight(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "8";
+        updateDisplay(string);
         return string;
     }
     string += "8";
+    updateDisplay(string);
     return string;
 }
 
 function nine(string){
     if (string[0] === "0"  && string[1] !== "."){
         string = "9";
+        updateDisplay(string);
         return string;
     }
     string += "9";
+    updateDisplay(string);
     return string;
 }
 
 
 
-button_breakL.onclick = () => {
-    input.value = break_left(input.value)
-}
+// button_breakL.onclick = () => {
+//     input.value = break_left(input.value)
+// }
 
-button_breakR.onclick = () =>{
-    input.value = break_rigth(input.value)
-}
+// button_breakR.onclick = () =>{
+//     input.value = break_rigth(input.value)
+// }
 
 button_0.onclick = ()=>{
     input.value = zero(input.value);
@@ -389,12 +445,12 @@ button_dot.onclick = ()=>{
 
 
 
-button_del.onclick = ()=>{
-    input.value = input.value.slice(0, -1);
-    if (input.value === ""){
-        input.value = "0";
-    }
-}
+// button_del.onclick = ()=>{
+//     input.value = input.value.slice(0, -1);
+//     if (input.value === ""){
+//         input.value = "0";
+//     }
+// }
 
 button_plus.onclick = ()=>{
     input.value = math_plus(input.value);
