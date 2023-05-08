@@ -592,7 +592,7 @@ function updateDisplay(value) {
 
     let style = window.getComputedStyle(input, null).getPropertyValue('font-size');
     if (value.length <= 3) {
-        input.style.fontSize ="7rem";
+        input.style.fontSize ="6rem";
     }
     else if (value.length <= 5) {
 
