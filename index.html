@@ -9,7 +9,6 @@
     <title>Calculator</title>
     <link rel = "stylesheet" href = "style/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="icon" type="image/png" href = "favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
@@ -19,8 +18,13 @@
 
 </head>
 <body>
+    <header> 
+        <button class="btn" id="btn">
+        <i class='bx bx-menu'></i>
+        </button>
+    </header>
     <section class  = "calculator" id = "calculator">
-        <header></header>
+     
         <input type="text" class = "calculator-screen" id="input" value = "0"  disabled>
         <div class  ="button-place">
             <button type = "button" class = "operator" id = "plus" value = "+">+</button>
@@ -37,15 +41,38 @@
             <button type = "button" class = "number two" value = "2" id = "2">2</button>
             <button type = "button" class = "number three" value = "3" id = "3">3</button>
             <button type = "button" class = "number zero" value = "0" id = "0">0</button>
-         
-            <!-- <button type = "button" value = "" id = "break_left">(</button>
-            <button type = "button" value = "" id = "break_rigth">)</button> -->
             <button type = "button" class = "В" value = "" id = "res">AC</button>
             <button type = "button" class = "proc" value = "" id = "proc">%</button>
             <button type = "button" class = "plus-minus" value = "" id = "plus-minus">+/- </button>
-            <!-- <button type = "button" value = "" id = "del"><i class='bx bx-arrow-to-left'></i></button> -->
             <button type = "button" class = "number" value = "" id = "dot">.</button>
             <button type = "button"  class = " operator" value = "" id = "equal"> = </button>
+        </div>
+        <div class="add-button">
+            <button type = "button" class = "number" value = "" id = "breakLeft">(</button>
+            <button type = "button" class = "number" value = "" id = "breakRight">)</button>
+            <button type = "button" class = "number" value = "" id = "x-1">1/x</button>
+            <button type = "button" class = "number" value = "" id = "fact">x!</button>
+            <button type = "button" class = "number" value = "" id = "xfact">x!!</button>
+            <button type = "button" class = "number" value = "" id = "x2">x<sub>2</sub></button>
+            <button type = "button" class = "number" value = "" id = "x3">x<sub>3</sub></button>
+            <button type = "button" class = "number" value = "" id = "xy">x<sub>4</sub></button>
+            <button type = "button" class = "number" value = "" id = "ex">e<sub>x</sub></button>
+            <button type = "button" class = "number" value = "" id = "x10">x<sub>10</sub></button>
+            <button type = "button" class = "number" value = "" id = "sqrtx2"><sub>2</sub>&radic; x</button>
+            <button type = "button" class = "number" value = "" id = "sqrtx3"><sub>3</sub>&radic; x</button>
+            <button type = "button" class = "number" value = "" id = "ysqrtx">4</sub>&radic; x</button>
+            <button type = "button" class = "number" value = "" id = "ln">ln</button>
+            <button type = "button" class = "number" value = "" id = "log">lg</button>
+            <button type = "button" class = "number" value = "" id = "sin">sin</button>
+            <button type = "button" class = "number" value = "" id = "cos">cos</button>
+            <button type = "button" class = "number" value = "" id = "tan">tan</button>
+            <button type = "button" class = "number" value = "" id = "ctg">ctg</button>
+            <button type = "button" class = "number" value = "" id = "e">e</button>
+            <button type = "button" class = "number" value = "" id = "sinh">sinh</button>
+            <button type = "button" class = "number" value = "" id = "cosh">cosh</button>
+            <button type = "button" class = "number" value = "" id = "tanh">tanh</button>
+            <button type = "button" class = "number" value = "" id = "ctgh">ctgh</button>
+            <button type = "button" class = "number" value = "" id = "pi">&pi;</button>
         </div>
     </section>
     <script src = "js/script.js"></script>

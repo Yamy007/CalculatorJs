@@ -1,5 +1,10 @@
 @import  url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+
+sub{
+    font-size: 1rem;
+    margin-bottom: 1em;
+}
 *{
 
     font-family: 'Poppins', sans-serif;
@@ -11,41 +16,80 @@ body{
     height: 100vh;
     background-color: #000;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 5vh;
 
+}
+
+header > .btn{
+
+    width: 5vh;
+    height: 5vh;
+    background-color: #000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+    transition: all 0.2s ease-in-out;
+}
 .calculator{
-    width: 48vh;
+    width: 54vw;
     height: 75vh;
     background-color: #000;
     border: 1px solid #fff;
     border-radius: 15px;
     padding: .5em;
+    display: grid;
+    grid-template-areas: "screen screen"
+                         " add-button main-button" ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20% 80%;
+    justify-items: center;
+    align-items: center;
+    padding-left: 1em;
+
 }
 
 
 
-.calculator-screen{
+.calculator-screen{  
     width: 100%;
     height: 14vh;
     border: none;
+    padding-right: 0em;
+    font-size: 7rem;
+    font-weight: 300;
     background-color: black;
-    display: flex;
-    align-items: flex-end;
     color: #fff;
     text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    grid-area: screen;
 }
 
 
 
 .button-place{
+    grid-area: main-button;
     padding-bottom: .5em;
     width: 100%;
-    height: 60vh;
+    margin: 0;
+
     display: grid;
-    grid-template-columns: repeat(4, 12vh );
+    grid-template-columns: repeat(4, 6vw );
     grid-template-rows: repeat(5, 12vh);
     grid-template-areas:   " ac plus-minus  proc divide "
                             "seven eight nine times"
@@ -54,7 +98,7 @@ body{
                             "zero zero dot equal";
     
     justify-items: center;
-    align-items: center
+    align-items: center;
 }
 
 
@@ -102,8 +146,7 @@ body{
 
 .zero{
     grid-area: zero;
-    width: 22vh;
-    text-align: left ;
+    width: 11vw;
     border-radius: 50px !important;
 }
 
@@ -148,6 +191,10 @@ body{
 
 
 
+
+
+
+
 .operator{
     background: #FD9404;
     color:#fff;
@@ -159,12 +206,12 @@ body{
 }
 
 button{
-    width: 11vh;
-    height: 11vh;
+    width: 5.5vw;
+    height: 5.5vw;
     border-radius: 50%;
     outline: none;
     border: none;
-    font-size: 2.5rem;
+    font-size: 2rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -190,98 +237,314 @@ button:hover{
 }
 
 
+
+
+
+#breakLeft{
+    grid-area: breakLeft;
+}
+
+#breakRight{
+    grid-area: breakRight;
+}
+
+
+#x-1{
+    grid-area: x-1;
+}
+
+#x{
+    grid-area: x;
+}
+
+#xfact{
+    grid-area: xfact;
+}
+
+#x2{
+    grid-area: x2;
+}
+
+#x3{
+    grid-area: x3;
+}
+
+#xy{
+    grid-area: xy;
+}
+
+#ex{
+    grid-area: ex;
+}
+
+#x10{
+    grid-area: x10;
+}
+
+#sqrtx2{
+    grid-area: sqrtx2;
+}
+
+#sqrtx3{
+    grid-area: sqrtx3;
+}
+
+#ysqrtx{
+    grid-area: ysqrtx;
+
+}
+#ln{
+    grid-area: ln;
+}
+
+#log{
+    grid-area: log;
+}
+
+#sin{
+    grid-area: sin;
+}
+
+#cos{
+    grid-area: cos;
+}
+
+#tan{
+    grid-area: tang;
+}
+
+#ctg{
+    grid-area: ctg;
+}
+
+#e{
+    grid-area: e;
+}
+#sinh{
+    grid-area: sinh;
+}
+
+#cosh{
+    grid-area: cosh;
+}
+
+#tanh{
+    grid-area: tanh;
+}
+
+#ctgh{
+    grid-area: ctgh;
+}
+
+#pi{
+    grid-area: pi;
+}
+
+
+
+
+
+.add-button{
+    grid-area: add-button;
+ display: grid;
+ grid-template-areas: "breakLeft breakRight  x-1 x xfact"
+ " x2 x3 xy ex x10 "
+ "sqrtx2 sqrtx3 ysqrtx ln log "
+ " sin cos tang ctg e"
+ " sinh cosh tanh ctgh pi ";
+    grid-template-columns: repeat(5, 6vw );
+    grid-template-rows: repeat(5, 12vh); 
+    justify-items: center;
+    align-items: center;
+}
+
+.add-button button{
+ 
+    background: #1F1F1F;
+
+    
+}
+
+
+
+
+
+
+
+@media screen and (max-width:1600px) {
+
+    .calculator{
+        height: 65vh;
+        grid-template-rows: 20% 80%;
+    }
+    .button-place{
+        grid-template-rows: repeat(5, 9.5vh);
+    }
+
+    .add-button{
+        grid-template-rows: repeat(5, 9.5vh);
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1440px) {
     .calculator{
-        width: 25vw;
+        width: 68vw;
+        height: 80vh;
     }
+    .button-place{
+        grid-template-rows: repeat(5, 11.5vh);
+        grid-template-columns: repeat(4, 7.5vw);
+    }
+
+    .add-button{
+        grid-template-rows: repeat(5, 11.5vh);
+        grid-template-columns: repeat(5, 7.5vw);
+    }
+
+    button{
+        width: 7vw;
+        height: 7vw;
+    }    
     
 }
 
 @media screen and (max-width: 1240px) {
     .calculator{
-        width: 30vw;
+        width: 68vw;
+        height: 75vh;
     }
+    .button-place{
+        grid-template-rows: repeat(5, 11.5vh);
+        grid-template-columns: repeat(4, 7.5vw);
+    }
+
+    .add-button{
+        grid-template-rows: repeat(5, 11.5vh);
+        grid-template-columns: repeat(5, 7.5vw);
+    }
+
+    button{
+        width: 7vw;
+        height: 7vw;
+        font-size: 1.5rem !important;
+    }  
     
 }
 
 @media screen and (max-width: 1024px){
     .calculator{
-        width: 45vw;
+        width: 68vw;
+        height: 60vh;
     }
-}
-@media screen and (max-width: 968px){
-    .calculator{
-       
-        height: 100vh;
-        width: 100vw;
+    .calculator-screen{
+        height: 10vh;}
+    .button-place{
+        grid-template-rows: repeat(5, 9vh);
+        grid-template-columns: repeat(4, 7.5vw);
     }
 
-    .calculator-screen{
-        height: 20vh;
-    }
-    .button-place{
-        border: none;
-        background: black;
-       height: 80vh;
+    .add-button{
+        grid-template-rows: repeat(5, 9vh);
+        grid-template-columns: repeat(5, 7.5vw);
     }
 
     button{
-        border:1px solid #000;
+        width: 7vw;
+        height: 7vw;
+        font-size: 1.5rem !important;
+    }  
+}
+@media screen and (max-width: 968px ) {
+    header{
+        display: none;
     }
+    body{
+        overflow: hidden;
+    }
+    .calculator{
+        height: 60vh;
+        width: 90vw;
+    }
+
+    .calculator-screen{
+        height: 10vh;
+    }
+    .button-place{
+        grid-template-rows: repeat(5, 9vh);
+        grid-template-columns: repeat(4, 10vw);
+    }
+
+    .add-button{
+        grid-template-rows: repeat(5, 9vh);
+        grid-template-columns: repeat(5, 10vw);
+    }
+
+    button{
+        width: 9vw;
+        height:9vw;
+        font-size: 1.5rem !important;
+    } 
 }
 @media screen and (max-width: 768px){
     .calculator{
        
-        height: 100vh;
-        width: 100vw;
+        height: 60vh;
+        width: 90vw;
     }
 
-    .calculator-screen{
-        height: 20vh;
-    }
-    .button-place{
-        border: none;
-        background: black;
-       height: 80vh;
-    }
-
-    button{
-        border:1px solid #000;
-    }
+    
 }
-@media screen and (max-width: 667px){
+
+@media screen and (max-width: 680px ) and (max-height: 400px)  {
     .calculator{
        
         height: 100vh;
         width: 100vw;
+        grid-template-rows: 24% 78%;
     }
-
     .calculator-screen{
-        height: 20vh;
+        height: 18vh;
+        font-size: 5rem !important;
     }
     .button-place{
-        border: none;
-        background: black;
-       height: 80vh;
+        grid-template-rows: repeat(5, 15vh);
+        grid-template-columns: repeat(4, 11vw);
     }
-
+    .add-button{
+        grid-template-rows: repeat(5, 15vh);
+        grid-template-columns: repeat(5, 11vw);
+    }
     button{
-        border:1px solid #000;
-    }
+        width: 7.8vw;
+        height:7.8vw;
+        font-size: 1.5rem !important;
+    } 
+    
 }
+
+
 @media screen and (max-width: 425px){
     .calculator{
         height: 100vh;
         width: 100%;
     }
-
-    header{
-        width: 100%;
-        height: 20vh;
+    .add-button{
+        display: none;
     }
+    
     .calculator-screen{
         font-size: 3.5rem;
-        height: 10vh !important;
+        
         padding-right: 3.5vh;
         font-weight: 300;
         height: 20vh;
@@ -290,13 +553,17 @@ button:hover{
         white-space: nowrap;
         width: 100%;
     }
-    .button-place{
 
-       border: none;
-       background: black;
-       height: 70vh;
-       justify-items: center;
-       align-items: center;
+    .calculator{
+        grid-template-rows: 28% 72%;
+        grid-template-areas: "screen screen"
+        " main-button main-button" ;
+    }
+    .button-place{
+        
+       grid-template-rows: repeat(5, 14vh);
+         grid-template-columns: repeat(4, 25vw);
+
     }
 
     .zero{
@@ -322,8 +589,6 @@ button:hover{
 
 
 @media screen and (max-width: 300px){
-    button{
-        font-size: 1.5rem;
-    }
+  
 
 }
