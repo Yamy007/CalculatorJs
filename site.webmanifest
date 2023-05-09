@@ -1,7 +1,12 @@
 {
-    "name": "Calculator",
-    "short_name": "yamy007",
+    "name": "Yamy007",
+    "short_name": "Calculator",
     "icons": [
+        {
+            "src": "apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
         {
             "src": "/android-chrome-192x192.png",
             "sizes": "192x192",
@@ -13,7 +18,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#242830",
+    "background_color": "#242830",
     "display": "standalone"
 }

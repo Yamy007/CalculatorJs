@@ -1,165 +1,25 @@
-let button_0 = document.getElementById("0");
-let button_1 = document.getElementById("1");
-let button_2 = document.getElementById("2");
-let button_3 = document.getElementById("3");
-let button_4 = document.getElementById("4");
-let button_5 = document.getElementById("5");
-let button_6 = document.getElementById("6");
-let button_7 = document.getElementById("7");
-let button_8 = document.getElementById("8");
-let button_9 = document.getElementById("9");
-let input = document.getElementById("input");
-let button_res = document.getElementById("res");
-let button_del = document.getElementById("del");
+let button_0 = document.getElementById("zero");
+let button_1 = document.getElementById("one");
+let button_2 = document.getElementById("two");
+let button_3 = document.getElementById("three");
+let button_4 = document.getElementById("four");
+let button_5 = document.getElementById("five");
+let button_6 = document.getElementById("six");
+let button_7 = document.getElementById("seven");
+let button_8 = document.getElementById("eight");
+let button_9 = document.getElementById("nine");
+let input = document.getElementById("display_down");
+let input_up = document.getElementById("display_upper");
+let button_res = document.getElementById("clears");
+let button_del = document.getElementById("clear");
 let button_equal = document.getElementById("equal");
 let button_plus = document.getElementById("plus");
 let button_minus = document.getElementById("minus");
-let button_times = document.getElementById("times");
-let button_div = document.getElementById("divide");
+let button_times = document.getElementById("mult");
+let button_div = document.getElementById("div");
 let button_dot = document.getElementById("dot");
-let button_minus_plus = document.getElementById("plus-minus");
 let button_proc = document.getElementById("proc");
 
-let button_breakL = document.getElementById("breakLeft");
-let button_breakR = document.getElementById("breakRight")
-let button_divOne = document.getElementById("x-1");
-let button_fact = document.getElementById("fact");
-
-let button_xfact = document.getElementById("xfact");
-
-let button_pow = document.getElementById("x2");
-
-
-let button_powthree = document.getElementById("x3");
-let button_powfour = document.getElementById("xy");
-let button_epow = document.getElementById("ex");
-let button_powten = document.getElementById("x10");
-let button_sqrt = document.getElementById("sqrtx2");
-let button_cbrt = document.getElementById("sqrtx3");
-let button_foursqrt = document.getElementById("ysqrtx");
-let button_ln = document.getElementById("ln");
-let button_logten = document.getElementById("log");
-
-
-let button_sin = document.getElementById("sin");
-let button_cos = document.getElementById("cos");
-let button_tan = document.getElementById("tan");
-let button_cot = document.getElementById("ctg");
-let button_e = document.getElementById("e");
-let button_sinh = document.getElementById("sinh");
-let button_cosh = document.getElementById("cosh");
-let button_tanh = document.getElementById("tanh");
-let button_coth = document.getElementById("ctgh");
-
-
-
-let button_pi = document.getElementById("pi");
-
-button_sinh.onclick = function() {
-    input.value = sinh(input.value);
-    updateDisplay(input.value);
-}
-
-button_cosh.onclick = function() {
-    input.value = cosh(input.value);
-    updateDisplay(input.value);
-}
-
-button_tanh.onclick = function() {
-    input.value = tanh(input.value);
-    updateDisplay(input.value);
-}
-
-button_coth.onclick = function() {
-    input.value = coth(input.value);
-    updateDisplay(input.value);
-}
-
-
-button_pi.onclick = function() {
-    input.value = Math.PI;
-    updateDisplay(input.value);
-}
-
-
-
-button_e.onclick = function() {
-    input.value = Math.E;
-    updateDisplay(input.value);
-}
-
-button_sin.onclick = function() {
-    input.value = sin(input.value);
-    updateDisplay(input.value);
-}
-
-button_cos.onclick = function() {
-    input.value = cos(input.value);
-    updateDisplay(input.value);
-}
-
-button_tan.onclick = function() {
-    input.value = tan(input.value);
-    updateDisplay(input.value);
-}
-
-button_cot.onclick = function() {
-    input.value = cot(input.value);
-    updateDisplay(input.value);
-}
-
-
-
-button_pow.onclick = function() {
-    input.value = powTwo(input.value);
-    updateDisplay(input.value);
-}
-
-button_powthree.onclick = function() {
-    input.value = powThree(input.value);
-    updateDisplay(input.value);
-}
-
-button_powfour.onclick = function() {
-    input.value = powFour(input.value);
-    updateDisplay(input.value);
-}
-
-button_epow.onclick = function() {
-    input.value = epow(input.value);
-    updateDisplay(input.value);
-}
-
-
-button_powten.onclick = function() {
-    input.value = powten(input.value);
-    updateDisplay(input.value);
-}
-
-button_sqrt.onclick = function() {
-    input.value = sqrt(input.value);
-    updateDisplay(input.value);
-}
-
-button_cbrt.onclick = function() {
-    input.value = cbrt(input.value);
-    updateDisplay(input.value);
-}
-
-button_foursqrt.onclick = function() {
-    input.value = foursqrt(input.value);
-    updateDisplay(input.value);
-}
-
-button_ln.onclick = function() {
-    input.value = ln(input.value);
-    updateDisplay(input.value);
-}
-
-button_logten.onclick = function() {
-    input.value = logten(input.value);
-    updateDisplay(input.value);
-}
 
 
 
@@ -590,9 +450,10 @@ function updateDisplay(value) {
        
     // }
 
+    
     let style = window.getComputedStyle(input, null).getPropertyValue('font-size');
     if (value.length <= 3) {
-        input.style.fontSize ="6rem";
+        input.style.fontSize ="6    rem";
     }
     else if (value.length <= 5) {
 
@@ -722,6 +583,25 @@ function equal(value) {
     result = trimTrailingZeros(result);
     return result
   }
+
+function equal_btn( string, value){
+    if (!!+value[value.length - 1 ]) return [value , string] ;
+    else if (value[value.length - 1 ] === "0")
+    {
+        value = equal(value);
+        string = value;
+        return [value , string] ;
+
+    }
+    
+
+    else{
+        value = value + string;
+        string = equal(value);
+        return [value , string] ;
+    }
+
+}
   
 
 function check(string){
@@ -745,7 +625,7 @@ function del(string){
 }
 
 function dot(string){
-    const newValue_2 = string.split(".") // 0.0 +0 => ["0", "0 +0"]
+    const newValue_2 = string.split(".")
     
     canDot = false;
     for (i of newValue_2[newValue_2.length - 1]){
@@ -767,94 +647,189 @@ function dot(string){
     return string;
 }
 
-function math_plus(string){
-    if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
-            string += "+";
-            string = updateDisplay(string);
+function math_plus(  string, value){ 
+
+    if (!value){
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+                value = String(string) +  "+"; 
+                string = "";
+                return [value , string] ;
+        }
+    }
+    else if (value && !string ){
+        if (!!+value[value.length - 1] || value[value.length - 1] === "0"){
+            value = equal(value) + "+";
+            string = "";
+            return [value , string] ;
+        }
+        else if (value[value.length -1] === "+" || value[value.length -1] === "-"|| value[value.length -1] === "×" || value[value.length -1 ] === "÷"){
+            value = value.slice(0, -1) + "+";
+            string = "";
+            return [value , string] ;
+        }
     }
     else{
-        try{
-            string = equal(string);
-            string += "+";
-            string = updateDisplay(string);
+        for (let l = 0; l < value.length; l++) {
+            if (value[l] === "+" || value[l] === "-" || value[l] === "×" || value[l] === "÷" || value[l] === "(" || value[l] === ")"){
+                if (!!+value[value.length - 1 ] || value[value.length - 1] === "0"){
+                    value = string + "+";
+                    string = "";
+                    return [value , string] ;
+                }}
+            }
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+            let temp = string
+            string = equal(value + string);
+            value  = value + temp
+            return [value , string] ;
+            }
+        else{
+            
+            value = string + "+";
+            string = "";
+            return [value , string] ;
         }
-        catch{
-            if (string[string.length - 1 ] === "+") string = string
-            else if (string[string.length - 1 ] === "-") string = string.slice(0, -1) + "+";
-            else if (string[string.length - 1 ] === "×") string = string. slice(0, -1) + "+";
-            else if (string[string.length - 1 ] === "÷") string = string. slice(0, -1) + "+";
-            else string = "0";
-        }
-       
+            
     }
-    return string;
+    return [value , string] ;
 }
 
-function math_minus(string){
-    console.log(!check(string))
-    if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷"  && !check(string)){
-        string += "-";
-        string = updateDisplay(string);
+function math_minus(string,value){
+    if (!value){
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+                value = String(string) +  "-"; 
+                string = "";
+                return [value , string] ;
+        }
+    }
+    else if (value && !string ){
+        if (!!+value[value.length - 1] || value[value.length - 1] === "0"){
+            value = equal(value) + "-";
+            string = "";
+            return [value , string] ;
+        }
+        else if (value[value.length -1] === "+" || value[value.length -1] === "-"|| value[value.length -1] === "×" || value[value.length -1 ] === "÷"){
+            value = value.slice(0, -1) + "-";
+            string = "";
+            return [value , string] ;
+        }
     }
     else{
-        try{
-            string = equal(string);
-            string += "-";
-            string = updateDisplay(string);
+        for (let l = 0; l < value.length; l++) {
+            if (value[l] === "+" || value[l] === "-" || value[l] === "×" || value[l] === "÷" || value[l] === "(" || value[l] === ")"){
+                if (!!+value[value.length - 1 ] || value[value.length - 1] === "0"){
+                    value = string + "-";
+                    string = "";
+                    return [value , string] ;
+                }}
+            }
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+            let temp = string
+            string = equal(value + string);
+            value  = value + temp
+            return [value , string] ;
+            }
+        else{
+            
+            value = string + "-";
+            string = "";
+            return [value , string] ;
         }
-        catch{
-            if (string[string.length - 1 ] === "-") string = string
-            else if (string[string.length - 1 ] === "+") string = string.slice(0, -1) + "-";
-            else if (string[string.length - 1 ] === "×") string = string. slice(0, -1) + "-";
-            else if (string[string.length - 1 ] === "÷") string = string. slice(0, -1) + "-";
-            else string = "0";
-        }
+            
     }
-    return string;
+    return [value , string] ;
 }
 
-function math_times(string){
-    if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷"  && !check(string)){
-        string += "×";
-        string = updateDisplay(string);
+function math_times(string, value){
+    if (!value){
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+                value = String(string) +  "×"; 
+                string = "";
+                return [value , string] ;
+        }
+    }
+    else if (value && !string ){
+        if (!!+value[value.length - 1] || value[value.length - 1] === "0"){
+            value = equal(value) + "×";
+            string = "";
+            return [value , string] ;
+        }
+        else if (value[value.length -1] === "+" || value[value.length -1] === "-"|| value[value.length -1] === "×" || value[value.length -1 ] === "÷"){
+            value = value.slice(0, -1) + "×";
+            string = "";
+            return [value , string] ;
+        }
     }
     else{
-        try{
-            string = equal(string);
-            string += "×";
-            string = updateDisplay(string);
+        for (let l = 0; l < value.length; l++) {
+            if (value[l] === "+" || value[l] === "-" || value[l] === "×" || value[l] === "÷" || value[l] === "(" || value[l] === ")"){
+                if (!!+value[value.length - 1 ] || value[value.length - 1] === "0"){
+                    value = string + "×";
+                    string = "";
+                    return [value , string] ;
+                }}
+            }
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+            let temp = string
+            string = equal(value + string);
+            value  = value + temp
+            return [value , string] ;
+            }
+        else{
+            
+            value = string + "×";
+            string = "";
+            return [value , string] ;
         }
-        catch{
-            if (string[string.length - 1 ] === "×") string = string
-            else if (string[string.length - 1 ] === "+") string = string.slice(0, -1) + "×";
-            else if (string[string.length - 1 ] === "-") string = string. slice(0, -1) + "×";
-            else if (string[string.length - 1 ] === "÷") string = string. slice(0, -1) + "×";
-            else string = "0";
-        }
+            
     }
-    return string;
+    return [value , string] ;
 }
 
-function math_div(string){
-    if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷"  && !check(string)){
-        string += "÷";
-        string = updateDisplay(string);
+function math_div(string, value){
+    if (!value){
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+                value = String(string) +  "÷"; 
+                string = "";
+                return [value , string] ;
+        }
+    }
+    else if (value && !string ){
+        if (!!+value[value.length - 1] || value[value.length - 1] === "0"){
+            value = equal(value) + "÷";
+            string = "";
+            return [value , string] ;
+        }
+        else if (value[value.length -1] === "+" || value[value.length -1] === "-"|| value[value.length -1] === "×" || value[value.length -1 ] === "÷"){
+            value = value.slice(0, -1) + "÷";
+            string = "";
+            return [value , string] ;
+        }
     }
     else{
-        try{
-            string = equal(string);
-            string += "÷";
-            string = updateDisplay(string);
+        for (let l = 0; l < value.length; l++) {
+            if (value[l] === "+" || value[l] === "-" || value[l] === "×" || value[l] === "÷" || value[l] === "(" || value[l] === ")"){
+                if (!!+value[value.length - 1 ] || value[value.length - 1] === "0"){
+                    value = string + "÷";
+                    string = "";
+                    return [value , string] ;
+                }}
+            }
+        if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+            let temp = string
+            string = equal(value + string);
+            value  = value + temp
+            return [value , string] ;
+            }
+        else{
+            
+            value = string + "÷";
+            string = "";
+            return [value , string] ;
         }
-        catch{ 
-            if (string[string.length - 1 ] === "÷") string = string
-            else if (string[string.length - 1 ] === "+") string = string.slice(0, -1) + "÷";
-            else if (string[string.length - 1 ] === "-") string = string. slice(0, -1) + "÷";
-            else if (string[string.length - 1 ] === "×") string = string. slice(0, -1) + "÷";
-            else string = "0";
-        }
+            
     }
-    return string;
+    return [value , string] ;
 }
 
 function zero(string){
@@ -969,22 +944,13 @@ function nine(string){
 
 
 
-button_breakL.onclick = () => {
-    input.value = break_left(input.value)
-}
 
-button_breakR.onclick = () =>{
-    input.value = break_rigth(input.value)
-}
 
 
 button_proc.onclick = () =>{
     input.value = proc(input.value);
 }
 
-button_minus_plus.onclick = () =>{
-    input.value = swapNumber(input.value);
-}
 
 button_res.onclick = () =>{
     input.value = "0";
@@ -1048,16 +1014,27 @@ button_dot.onclick = ()=>{
 // }
 
 button_plus.onclick = ()=>{
-    input.value = math_plus(input.value);
+    let add = math_plus(    input.value, input_up.value);
+    input_up.value = add[0];
+    input.value = add[1];
+    
 }
+
+
 button_minus.onclick = ()=>{    
-    input.value = math_minus(input.value);
+    let add = math_minus(    input.value, input_up.value);
+    input_up.value = add[0];
+    input.value = add[1];
 }
 button_times.onclick = ()=>{
-    input.value = math_times(input.value);
+    let add = math_times(    input.value, input_up.value);
+    input_up.value = add[0];
+    input.value = add[1];
 }
 button_div.onclick = ()=>{
-    input.value = math_div(input.value);
+    let add = math_div(    input.value, input_up.value);
+    input_up.value = add[0];
+    input.value = add[1];
 }
 
 button_equal.onclick = ()=>{
@@ -1066,24 +1043,15 @@ button_equal.onclick = ()=>{
 }
 
 
-button_divOne.onclick = ()=>{
-    input.value = divideOne(input.value);
-    updateDisplay(input.value);
-}
 
-button_fact.onclick = ()=>{
-    input.value = fact(input.value);
-    updateDisplay(input.value);
-}
 
-button_xfact.onclick = ()=>{
-    input.value = factTwo(input.value);
-    updateDisplay(input.value);
-}
 
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Enter' || event.code === 'NumpadEnter') {
-        input.value = equal(input.value);
+   
+        let add = equal_btn(    input.value, input_up.value);
+        input_up.value = add[0];
+        input.value = add[1];
         addHoverEffect(button_equal)
     }
     else if (event.code === 'Backspace'){
@@ -1092,19 +1060,27 @@ document.addEventListener('keydown', function(event) {
     }
    
     else if (event.code === 'NumpadAdd' || event.code === 'Equal'){
-        input.value = math_plus(input.value);
+        let add = math_plus(    input.value, input_up.value);
+        input_up.value = add[0];
+        input.value = add[1];
         addHoverEffect(button_plus)
     }
     else if (event.code === 'NumpadSubtract' || event.code === 'Minus'){
-        input.value = math_minus(input.value);
+        let add = math_minus(    input.value, input_up.value);
+        input_up.value = add[0];
+        input.value = add[1];
         addHoverEffect(button_minus)
     }
     else if (event.code === 'NumpadMultiply' || event.code === 'Digit8'){
-        input.value = math_times(input.value);
+        let add = math_times(    input.value, input_up.value);
+        input_up.value = add[0];
+        input.value = add[1];
         addHoverEffect(button_times)
     }
     else if (event.code === 'NumpadDivide' || event.code === 'Slash'){
-        input.value = math_div(input.value);
+        let add = math_div(    input.value, input_up.value);
+        input_up.value = add[0];
+        input.value = add[1];
         addHoverEffect(button_div)
     }
     else if (event.code === 'NumpadDecimal' || event.code === 'Period'){

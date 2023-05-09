@@ -1,594 +1,284 @@
-@import  url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
-sub{
-    font-size: 1rem;
-    margin-bottom: 1em;
-}
 *{
-
-    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
+
+:root{
+    --main-color:#242830;
+    --second-color: #AA47BF;
+    --text-color: #BB4FD2;
+    --text-color-2: #fff;
+    --button-color: #29303E;
+}
+
 body{
     width: 100%;
     height: 100vh;
-    background-color: #000;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+   justify-content: center;
     align-items: center;
+
 }
 
-header{
-    position: absolute;
-    top: 0;
+
+
+
+
+.calculate{
+    width: 40%;
+    height: 70%;
+    display: grid;
+    grid-template-areas: "display"
+                         "buttons";
+    grid-template-rows: 3fr 5fr;   
+}
+.display{
+    grid-area: display;
+    display: grid;
+    grid-template-areas: "upper"
+                         "down";
+    grid-template-rows: 1fr 2fr;
+    background-color: var(--main-color);
+    border-radius: 30px 30px  0 0;
+    
+}
+
+.buttons{
+    grid-area: buttons;
+    display:  grid;
+    border: none;
+    grid-template-areas:
+    "clear  div mult  clears"
+    "seven eight nine  minus"
+    "four five six  plus"
+    "one two three equal"
+    "dot zero  proc equal";                     
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+
+/* -----display style ----- */
+
+.display > #display_upper{
     width: 100%;
-    height: 5vh;
-
-}
-
-header > .btn{
-
-    width: 5vh;
-    height: 5vh;
-    background-color: #000;
+    height: 100%;
     border: none;
     outline: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 2rem;
-    transition: all 0.2s ease-in-out;
-}
-.calculator{
-    width: 54vw;
-    height: 75vh;
-    background-color: #000;
-    border: 1px solid #fff;
-    border-radius: 15px;
-    padding: .5em;
-    display: grid;
-    grid-template-areas: "screen screen"
-                         " add-button main-button" ;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 20% 80%;
-    justify-items: center;
-    align-items: center;
-    padding-left: 1em;
-
-}
-
-
-
-.calculator-screen{  
-    width: 100%;
-    height: 14vh;
-    border: none;
-    padding-right: 0em;
-    font-size: 6rem;
-    font-weight: 300;
-    background-color: black;
-    color: #fff;
+    background-color: var(--main-color);
+    color: var(--text-color-2);
+    border-radius: 25px;
+    font-size: 2.3rem;
+    font-weight: 400;
     text-align: right;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-    grid-area: screen;
+    padding-right: 0.5em;
 }
 
-
-
-.button-place{
-    grid-area: main-button;
-    padding-bottom: .5em;
+.display > #display_down{
     width: 100%;
-    margin: 0;
-
-    display: grid;
-    grid-template-columns: repeat(4, 6vw );
-    grid-template-rows: repeat(5, 12vh);
-    grid-template-areas:   " ac plus-minus  proc divide "
-                            "seven eight nine times"
-                            "four five six minus"
-                            "one two three plus"
-                            "zero zero dot equal";
-    
-    justify-items: center;
-    align-items: center;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    color: var(--text-color-2);
+    border-radius: 25px;
+    font-size: 4.5rem;
+    font-weight: 300;
+    text-align: right;
+    padding-right: 0.5em;
 }
 
 
+#clear {
+    grid-area: clears;
+    color:#fff;
+    background:  linear-gradient(to right, var(--second-color), var(--text-color));
+   
+    border: 1px solid #000;
+    border-right: none;
+    border-top: none;
+}
 
-.one{
+#clears {
+    grid-area: clear;
+    background: var(--button-color);
+    color: var(--text-color);
+    border: 1px solid #000;
+    border-top: none;
+
+}
+/* -------------numbers style---------------*/
+
+.number {
+     background: var(--button-color);
+        color: var(--text-color-2);
+        border: 1px solid #000;
+
+}
+
+#dot{
+    border-radius: 0 0 0 30px;
+    border-bottom: none;    
+    border-left: none;
+}
+#equal{
+    border-radius: 0 0 30px 0;
+    color:#fff;
+    border: 1px solid #000;
+    background: linear-gradient(to right, var(--second-color), var(--text-color));
+    border-right: none;
+    border-bottom: none;
+}
+
+
+#one{
     grid-area: one;
 }
-
-.two{
+#two{
     grid-area: two;
 }
-
-.three{
+#three{
     grid-area: three;
 }
-
-.four{
+#four{
     grid-area: four;
 }
-
-.five{
-    grid-area: five;
-}
-
-.six{
+#six{
     grid-area: six;
 }
-
-.seven{
+#seven{
     grid-area: seven;
 }
-
-.eight{
+#eight{
     grid-area: eight;
 }
-
-
-.nine{
+#nine{
     grid-area: nine;
 }
 
-.ac{
-    grid-area: ac;
-}
-
-.zero{
+#zero{
     grid-area: zero;
-    width: 11vw;
-    border-radius: 50px !important;
 }
 
 
-#plus-minus{
-    grid-area: plus-minus;
-}
-#proc{
-    grid-area: proc;
-}
 #dot{
     grid-area: dot;
 }
-#del{
-    grid-area: del;
+
+#proc{
+    grid-area: proc;
 }
-#plus{
+
+/* -------------operation style---------------*/
+
+
+#plus {
     grid-area: plus;
+    background:  linear-gradient(to right, var(--second-color), var(--text-color));
+    color:#fff;
+    border: 1px solid #000;
+    border-right: none;
 }
-#minus{
+
+#minus {
     grid-area: minus;
+    background:  linear-gradient(to right, var(--second-color), var(--text-color));
+    color:#fff;
+    border: 1px solid #000;
+    border-right: none;
 }
 
-#times{
-    grid-area: times;
+#mult {
+    background: var(--button-color);
+    color: var(--text-color);
+    border: 1px solid #000;
+    border-top: none;
+    grid-area: mult;
 }
 
-#divide{
-    grid-area: divide;
+
+#div {
+    grid-area: div;
+    background: var(--button-color);
+    color: var(--text-color);
+    border: 1px solid #000;
+    border-top: none;
+
 }
 
-#equal{
+#equal {
     grid-area: equal;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.operator{
-    background: #FD9404;
-    color:#fff;
-}
-
-.number{
-    background:#323232 ;
-    color:#fff;
-}
-
 button{
-    width: 5.5vw;
-    height: 5.5vw;
-    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
     outline: none;
     border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
+    border-radius: 0;
+    background: var(--button-color);
+    color: var(--text-color-2);
+    border: 1px solid #000;
+    border-top: none;
 }
 
 
 
-button:hover{
-
-    background-color: #e6e6e6;
-    transition: all 0.2s ease-in-out;
-    color:#000;
-}
-
-
-
-.hover-effect{
-    background-color: #e6e6e6;
-    transition: all 0.2s ease-in-out;
-    color:#000;
-}
-
-
-
-
-
-#breakLeft{
-    grid-area: breakLeft;
-}
-
-#breakRight{
-    grid-area: breakRight;
-}
-
-
-#x-1{
-    grid-area: x-1;
-}
-
-#x{
-    grid-area: x;
-}
-
-#xfact{
-    grid-area: xfact;
-}
-
-#x2{
-    grid-area: x2;
-}
-
-#x3{
-    grid-area: x3;
-}
-
-#xy{
-    grid-area: xy;
-}
-
-#ex{
-    grid-area: ex;
-}
-
-#x10{
-    grid-area: x10;
-}
-
-#sqrtx2{
-    grid-area: sqrtx2;
-}
-
-#sqrtx3{
-    grid-area: sqrtx3;
-}
-
-#ysqrtx{
-    grid-area: ysqrtx;
-
-}
-#ln{
-    grid-area: ln;
-}
-
-#log{
-    grid-area: log;
-}
-
-#sin{
-    grid-area: sin;
-}
-
-#cos{
-    grid-area: cos;
-}
-
-#tan{
-    grid-area: tang;
-}
-
-#ctg{
-    grid-area: ctg;
-}
-
-#e{
-    grid-area: e;
-}
-#sinh{
-    grid-area: sinh;
-}
-
-#cosh{
-    grid-area: cosh;
-}
-
-#tanh{
-    grid-area: tanh;
-}
-
-#ctgh{
-    grid-area: ctgh;
-}
-
-#pi{
-    grid-area: pi;
-}
-
-
-
-
-
-.add-button{
-    grid-area: add-button;
- display: grid;
- grid-template-areas: "breakLeft breakRight  x-1 x xfact"
- " x2 x3 xy ex x10 "
- "sqrtx2 sqrtx3 ysqrtx ln log "
- " sin cos tang ctg e"
- " sinh cosh tanh ctgh pi ";
-    grid-template-columns: repeat(5, 6vw );
-    grid-template-rows: repeat(5, 12vh); 
-    justify-items: center;
-    align-items: center;
-}
-
-.add-button button{
- 
-    background: #1F1F1F;
-
-    
-}
-
-
-
-
-
-
-
-@media screen and (max-width:1600px) {
-
-    .calculator{
-        height: 65vh;
-        grid-template-rows: 20% 80%;
+@media screen and (max-width: 1400px) {
+    .calculate{
+        width: 65%;
     }
-    .button-place{
-        grid-template-rows: repeat(5, 9.5vh);
+    .display > #display_upper{
+        font-size: 2.5rem;
     }
-
-    .add-button{
-        grid-template-rows: repeat(5, 9.5vh);
-    }
-    
-}
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 1440px) {
-    .calculator{
-        width: 68vw;
-        height: 80vh;
-    }
-    .button-place{
-        grid-template-rows: repeat(5, 11.5vh);
-        grid-template-columns: repeat(4, 7.5vw);
-    }
-
-    .add-button{
-        grid-template-rows: repeat(5, 11.5vh);
-        grid-template-columns: repeat(5, 7.5vw);
-    }
-
-    button{
-        width: 7vw;
-        height: 7vw;
-    }    
-    
-}
-
-@media screen and (max-width: 1240px) {
-    .calculator{
-        width: 68vw;
-        height: 75vh;
-    }
-    .button-place{
-        grid-template-rows: repeat(5, 11.5vh);
-        grid-template-columns: repeat(4, 7.5vw);
-    }
-
-    .add-button{
-        grid-template-rows: repeat(5, 11.5vh);
-        grid-template-columns: repeat(5, 7.5vw);
-    }
-
-    button{
-        width: 7vw;
-        height: 7vw;
-        font-size: 1.5rem !important;
-    }  
-    
-}
-
-@media screen and (max-width: 1024px){
-    .calculator{
-        width: 68vw;
-        height: 60vh;
-    }
-    .calculator-screen{
-        height: 10vh;}
-    .button-place{
-        grid-template-rows: repeat(5, 9vh);
-        grid-template-columns: repeat(4, 7.5vw);
-    }
-
-    .add-button{
-        grid-template-rows: repeat(5, 9vh);
-        grid-template-columns: repeat(5, 7.5vw);
-    }
-
-    button{
-        width: 7vw;
-        height: 7vw;
-        font-size: 1.5rem !important;
-    }  
-}
-@media screen and (max-width: 968px ) {
-    header{
-        display: none;
-    }
-    body{
-        overflow: hidden;
-    }
-    .calculator{
-        height: 60vh;
-        width: 90vw;
-    }
-
-    .calculator-screen{
-        height: 10vh;
-    }
-    .button-place{
-        grid-template-rows: repeat(5, 9vh);
-        grid-template-columns: repeat(4, 10vw);
-    }
-
-    .add-button{
-        grid-template-rows: repeat(5, 9vh);
-        grid-template-columns: repeat(5, 10vw);
-    }
-
-    button{
-        width: 9vw;
-        height:9vw;
-        font-size: 1.5rem !important;
-    } 
-}
-@media screen and (max-width: 768px){
-    .calculator{
-       
-        height: 60vh;
-        width: 90vw;
-    }
-
-    
-}
-
-@media screen and (max-width: 680px ) and (max-height: 400px)  {
-    .calculator{
-       
-        height: 100vh;
-        width: 100vw;
-        grid-template-rows: 24% 78%;
-    }
-    .calculator-screen{
-        height: 18vh;
-        font-size: 5rem !important;
-    }
-    .button-place{
-        grid-template-rows: repeat(5, 15vh);
-        grid-template-columns: repeat(4, 11vw);
-    }
-    .add-button{
-        grid-template-rows: repeat(5, 15vh);
-        grid-template-columns: repeat(5, 11vw);
-    }
-    button{
-        width: 7.8vw;
-        height:7.8vw;
-        font-size: 1.5rem !important;
-    } 
-    
-}
-
-
-@media screen and (max-width: 425px){
-    .calculator{
-        height: 100vh;
-        width: 100%;
-    }
-    .add-button{
-        display: none;
-    }
-    
-    .calculator-screen{
+    .display > #display_down{
         font-size: 3.5rem;
-        
-        padding-right: 3.5vh;
-        font-weight: 300;
-        height: 20vh;
-        overflow: hidden;
-        box-sizing: border-box;
-        white-space: nowrap;
-        width: 100%;
+    }
+}
+    
+
+@media screen and (max-width: 978px) {
+    .calculate{
+        width: 70%;
+        height: 80%;
     }
 
-    .calculator{
-        grid-template-rows: 28% 72%;
-        grid-template-areas: "screen screen"
-        " main-button main-button" ;
+    .display > #display_upper{
+        font-size: 2.2rem;
     }
-    .button-place{
-        
-       grid-template-rows: repeat(5, 14vh);
-         grid-template-columns: repeat(4, 25vw);
-
-    }
-
-    .zero{
-        width:45vw;
-        height: 12vh;
-        border-radius: 50px;
-        display: flex;
-        padding-left: 1em;
-        justify-content: start;
-        align-items: center;
-    }
-    button{
-        width: 23vw;
-        height: 23vw;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2rem;
+    .display > #display_down{
+        font-size: 3.2rem;
     }
 }
 
 
+@media screen and (max-width: 875px) {
+    .calculate{
+        width: 80%;
+    }
+}
 
-@media screen and (max-width: 300px){
-  
+@media screen and (max-width: 768px) {
+    .calculate{
+        width: 90%;
+        height: 90vh;
+    }
 
+
+}
+
+@media screen and (max-width: 600px) {
+    .calculate{
+        width: 100%;
+        height: 100vh;
+    }
 }
