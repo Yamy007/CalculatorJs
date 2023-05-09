@@ -1,3 +1,5 @@
+
+
 let button_0 = document.getElementById("zero");
 let button_1 = document.getElementById("one");
 let button_2 = document.getElementById("two");
@@ -554,8 +556,23 @@ function trimTrailingZeros(num) {
     const numArr = numStr.split('.');
     const intPart = numArr[0];
     let fracPart = numArr[1];
-    fracPart = fracPart.slice(0, -1);
-    fracPart = fracPart.slice(0, -1);
+    let nine = []
+    if (fracPart.length  <= 4){
+        return num
+    }
+    for (let i = 0; i < fracPart.length; i++) {
+        if (fracPart[i] === "9"){
+            nine.push(i)
+        }
+    }
+    if (nine.length >= 5){
+        return Math.round(num * 100) / 100
+
+    }
+    if (num.length > 8) {
+        fracPart = fracPart.slice(0, -1);
+        fracPart = fracPart.slice(0, -1);
+    }
     do {
       fracPart = fracPart.slice(0, -1);
     } while (fracPart.endsWith('0')) 
@@ -596,9 +613,10 @@ function equal_btn( string, value){
     
 
     else{
+        let result;
         value = value + string;
-        string = equal(value);
-        return [value , string] ;
+        result = equal(value);
+        return [value , result] ;
     }
 
 }
@@ -681,7 +699,10 @@ function math_plus(  string, value){
             }
         if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
             let temp = string
+            console.log("string", string)
+            console.log("value", value)
             string = equal(value + string);
+            console.log("equal", string)
             value  = value + temp
             return [value , string] ;
             }
