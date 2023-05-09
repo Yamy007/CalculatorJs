@@ -648,7 +648,9 @@ function dot(string){
 }
 
 function math_plus(  string, value){ 
-
+    if( value === "0"){
+        value = "";
+    }
     if (!value){
         if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
                 value = String(string) +  "+"; 
@@ -695,6 +697,9 @@ function math_plus(  string, value){
 }
 
 function math_minus(string,value){
+    if( value === "0"){
+        value = "";
+    }
     if (!value){
         if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
                 value = String(string) +  "-"; 
@@ -741,6 +746,9 @@ function math_minus(string,value){
 }
 
 function math_times(string, value){
+    if( value === "0"){
+        value = "";
+    }
     if (!value){
         if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
                 value = String(string) +  "×"; 
@@ -787,6 +795,9 @@ function math_times(string, value){
 }
 
 function math_div(string, value){
+    if( value === "0"){
+        value = "";
+    }
     if (!value){
         if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
                 value = String(string) +  "÷"; 
@@ -953,6 +964,7 @@ button_proc.onclick = () =>{
 
 
 button_res.onclick = () =>{
+    input_up.value = "";
     input.value = "0";
     updateDisplay(input.value);
 }
@@ -1006,12 +1018,10 @@ button_dot.onclick = ()=>{
 
 
 
-// button_del.onclick = ()=>{
-//     input.value = input.value.slice(0, -1);
-//     if (input.value === ""){
-//         input.value = "0";
-//     }
-// }
+button_del.onclick = ()=>{
+    input.value = 0;
+    
+}
 
 button_plus.onclick = ()=>{
     let add = math_plus(    input.value, input_up.value);
@@ -1038,8 +1048,9 @@ button_div.onclick = ()=>{
 }
 
 button_equal.onclick = ()=>{
-    input.value = equal(input.value);
-    updateDisplay(input.value);
+    let add = equal_btn(    input.value, input_up.value);
+    input_up.value = add[0];
+    input.value = add[1];
 }
 
 
