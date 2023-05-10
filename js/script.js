@@ -643,25 +643,32 @@ function del(string){
 }
 
 function dot(string){
-    const newValue_2 = string.split(".")
-    
-    canDot = false;
-    for (i of newValue_2[newValue_2.length - 1]){
-        if (i === "+" || i === "-" || i === "×" || i === "÷" || i === "(" || i === ")" || i === "" ){
-
-            canDot = true;
-        }
+    if (!string && string !== "0"){
+        return string
     }
-    if (string.length === 1 && string[0] === "0"){
+    else if (string === "0"){
         string = "0."
-        string = updateDisplay(string);
     }
-    
-    if (string[string.length - 1] !== "." && string !== "" && string[string.length-1] !== "+" && string[string.length-1] !== "-" && string[string.length-1] !== "×" && string[string.length-1] !== "÷" && canDot){
-        string += ".";
-        string = updateDisplay(string);
+    else if (string === ""){
+        string = "0."
     }
+    else if (string[string.length - 1 ] === "."){
+        return string
+    }
+    else{
+        for (i of string){
+            if (i === "."){
+                return string
+            }
+            
+        }
+        string = string + ".";
+        return string
 
+    }
+    if (string[string.length - 1 ] !== "." && string[string.length - 1 ] !== "" && string[string.length - 1 ] !== "+" && string[string.length - 1 ] !== "-" && string[string.length - 1 ] !== "×" && string[string.length - 1 ] !== "÷" && !check(string)){
+        string = string + ".";
+    }
     return string;
 }
 
