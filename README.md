@@ -1,8 +1,14 @@
-# CalculatorJs
+# CalculatorJs 
 
+
+
+---
+#Preview
+https://calculator-yamy.netlify.app
+---
 ## Description
 
-This is a simple calculator made with JavaScript, HTML and CSS. It was made to practice my skills with JavaScript and DOM manipulation.  Also, I used the [mathjs](https://mathjs.org/) library to evaluate the expressions. The calculator has a dark mode and a light mode. 
+This is a simple calculator made with JavaScript, HTML and CSS, PWD. It was made to practice my skills with JavaScript and DOM manipulation.  Also, I used the [mathjs](https://mathjs.org/) library to evaluate the expressions. The calculator has a dark mode and a light mode. 
 
 
 ---
